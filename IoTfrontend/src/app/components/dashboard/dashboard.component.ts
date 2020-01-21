@@ -12,4 +12,12 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  openSidebar() {
+    console.log("Sidebar");
+  }
+
+  openAdminView() {
+
+  }
+
 }
