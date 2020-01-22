@@ -1,9 +1,27 @@
 <div class="header">
-    <i (onclick)="openSidebar()" class="material-icons">menu</i>
+    <i (click)="openSidebar()" class="material-icons menu">menu</i>
     <h1>Dashboard</h1>
-    <i (click)="openAdminView" class="material-icons">apps</i>
+    <i (click)="openAdminView()" class="material-icons adminview">apps</i>
 </div>
 
-<div class="grid">
-
+<div class="main {{gridClass}}">
+    <mat-grid-list cols="3" rowHeight="3:2">
+        <mat-grid-tile *ngFor="let sensorDisplayed of sensorDisplayed">
+            <div class="card">
+                <p class="sensorName">{{sensorDisplayed.name}}</p>
+                <p>Letzer Wert: {{sensorDisplayed.lastvalue}}</p>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>  
 </div>
+
+<div class="main adminView" *ngIf="showAdminView">
+    <app-adminview></app-adminview>
+</div>
+
+<div class="main Sidebar" *ngIf="showSidebar">
+    <app-sidebar></app-sidebar>
+</div>
+
+
+  

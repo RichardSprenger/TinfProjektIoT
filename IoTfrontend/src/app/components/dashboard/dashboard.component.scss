@@ -1,0 +1,68 @@
+.header {
+    position: fixed;
+    width: 100%;
+    height: 120px;
+}
+
+.header h1 {
+    position: relative;
+    top: -60px;
+    text-align: center;
+    font-size: 62px;
+}
+
+.material-icons.menu {
+    position: relative;
+    left: 15px;
+    top: 15px;
+    font-size: 63px;
+}
+
+.material-icons.adminview {
+    position: relative;
+    float: right;
+    right: 15px;
+    top: -202px;
+    font-size: 63px;
+}
+
+.material-icons:hover {
+    cursor: pointer;
+    border: 1px solid lightgrey;
+}
+
+.main {
+    position: fixed;
+    top: 200px;
+    max-height: 95%;
+    width: 100%;
+}
+
+.main.grid {
+    // background-color: blue;
+}
+
+.main.gridBlured {
+    position: fixed;
+    top: 200px;
+    max-height: 95%;
+    width: 100%;
+    background-color: red;
+}
+
+.main.Sidebar {
+    background-color: green;
+}
+
+.main.adminView {
+    background-color: pink;
+}
+
+.card {
+    width: 90%;
+    margin-left: 5%;
+    height: 90%;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.34);
+}
