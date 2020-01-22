@@ -1,8 +1,8 @@
-<div class="sidebar-closed">
-    Test
+<div class="header" >
+    
 </div>
-<div class="sidbar-open">
-
+<div class="sidebar-open" *ngIf="sidebarOpen">
+    test2
 </div>
-
+<div class="sidebar-button" (click)="toggleBar()">...</div>
 <router-outlet>
