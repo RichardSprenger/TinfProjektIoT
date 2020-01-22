@@ -1,3 +1,13 @@
+.notReady {
+    text-align: center;
+    align-items: center;
+}
+
+.mat-spinner {
+    margin-left: 47%;
+    margin-top: 150px;
+}
+
 .header {
     position: fixed;
     width: 100%;
@@ -34,8 +44,10 @@
 .main {
     position: fixed;
     top: 200px;
-    max-height: 95%;
+    max-height: 85%;
     width: 100%;
+    overflow: auto;
+    margin-bottom: 30px;
 }
 
 .main.grid {
@@ -43,11 +55,7 @@
 }
 
 .main.gridBlured {
-    position: fixed;
-    top: 200px;
-    max-height: 95%;
-    width: 100%;
-    background-color: red;
+
 }
 
 .main.Sidebar {
@@ -58,6 +66,11 @@
     background-color: pink;
 }
 
+.viewportGrid {
+    width: 100%;
+    height: 20vh;
+}
+
 .card {
     width: 90%;
     margin-left: 5%;
@@ -65,4 +78,8 @@
     border: 2px solid black;
     border-radius: 5px;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.34);
+}
+
+.gridList {
+    margin-bottom: 130px;
 }

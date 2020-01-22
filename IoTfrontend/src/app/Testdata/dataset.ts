@@ -12,7 +12,7 @@ export const SENSORS: Sensor[] = [
     { id: 6, name: "Sensor 6", installation_date: date},
     { id: 7, name: "Sensor 7", installation_date: date},
     { id: 8, name: "Sensor 8", installation_date: date},
-    { id: 9, name: "Sensor 9", installation_date: date},
+    { id: 9, name: "Sensor 9", installation_date: date}
 ]
 
 export const TYPES: Type[] = [

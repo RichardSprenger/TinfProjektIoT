@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AppRoutingModule,
     MatSidenavModule,
     BrowserAnimationsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatProgressSpinnerModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
