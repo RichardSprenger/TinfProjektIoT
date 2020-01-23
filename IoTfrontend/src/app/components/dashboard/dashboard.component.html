@@ -1,1 +1,37 @@
-<p>dashboard works!</p>
+<div *ngIf="!contentReady" class="notReady">
+    <mat-spinner></mat-spinner>
+    <p>Bitte warten ...</p>
+    <p>Daten werden geladen ...</p>
+</div>
+<div *ngIf="contentReady">
+    <div class="header">
+        <i (click)="openSidebar()" class="material-icons menu">menu</i>
+        <h1>Dashboard</h1>
+        <i (click)="openAdminView()" class="material-icons adminview">apps</i>
+    </div>
+    
+        <div class="main {{gridClass}}">
+            <mat-grid-list cols="3" rowHeight="3:2" class="gridList">
+                <mat-grid-tile *ngFor="let sensorDisplayedHere of sensorDisplayed">
+                    <div class="card">
+                        <p class="sensorName">{{sensorDisplayedHere.name}}</p>
+                        <p>Letzer Wert: {{sensorDisplayedHere.lastvalue}}</p>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>  
+        </div>
+    
+    
+    <div class="main adminView" *ngIf="showAdminView">
+        <app-adminview></app-adminview>
+    </div>
+    
+    <div class="main Sidebar" *ngIf="showSidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+</div>
+
+
+
+
+  
