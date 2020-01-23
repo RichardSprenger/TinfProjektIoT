@@ -4,7 +4,7 @@ import { Type } from './sensors';
 const date = new Date();
 
 export const SENSORS: Sensor[] = [
-    { id: 1, name: "Sensor 1", installation_date: date},
+    { id: 1, name: "Sensor 1", installation_date: new Date(2020-1-12)},
     { id: 2, name: "Sensor 2", installation_date: date},
     { id: 3, name: "Sensor 3", installation_date: date},
     { id: 4, name: "Sensor 4", installation_date: date},
@@ -12,8 +12,8 @@ export const SENSORS: Sensor[] = [
     { id: 6, name: "Sensor 6", installation_date: date},
     { id: 7, name: "Sensor 7", installation_date: date},
     { id: 8, name: "Sensor 8", installation_date: date},
-    { id: 9, name: "Sensor 9", installation_date: date}
-]
+    { id: 9, name: "Sensor 9", installation_date: date},
+];
 
 export const TYPES: Type[] = [
     { id: 1, name: "Temperatur", unit: "°C" },

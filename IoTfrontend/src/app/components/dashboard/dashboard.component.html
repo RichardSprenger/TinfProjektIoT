@@ -12,10 +12,10 @@
     
         <div class="main {{gridClass}}">
             <mat-grid-list cols="3" rowHeight="3:2" class="gridList">
-                <mat-grid-tile *ngFor="let sensorDisplayed of sensorDisplayed">
+                <mat-grid-tile *ngFor="let sensorDisplayedHere of sensorDisplayed">
                     <div class="card">
-                        <p class="sensorName">{{sensorDisplayed.name}}</p>
-                        <p>Letzer Wert: {{sensorDisplayed.lastvalue}}</p>
+                        <p class="sensorName">{{sensorDisplayedHere.name}}</p>
+                        <p>Letzer Wert: {{sensorDisplayedHere.lastvalue}}</p>
                     </div>
                 </mat-grid-tile>
             </mat-grid-list>  

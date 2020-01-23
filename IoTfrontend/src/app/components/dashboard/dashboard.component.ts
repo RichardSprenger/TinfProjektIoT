@@ -21,13 +21,10 @@ export class DashboardComponent implements OnInit {
   sensors = SENSORS;
   sensorLength = this.sensors.length;
   
-  sensorDisplayed: SensorDisplay[] = [
-
-
-  ];
-
-  getSensorDisplayed = {id: null, name: null, lastvalue: null, id_type: null, timeCreated: null};
+  sensorDisplayed = this.sensors;
   
+  // getSensorDisplayed: SensorDisplay = {id: null, name: null, lastvalue: null, id_type: null, timeCreated: null};
+
   sensordatas = SENSORDATAS;
   types = TYPES;
 
@@ -41,6 +38,15 @@ export class DashboardComponent implements OnInit {
 
   getValues() {
 
+    for ( let i = 0; i < this.sensorDisplayed.length; i++) {
+      this.sensorDisplayed.pop();
+    }
+    console.log(this.sensorDisplayed);
+
+    // let hereSensor = this.sensors;
+
+
+    /*
     for (let i = 0; i < this.sensorLength; i++) {
       console.log(i);
       console.log(this.sensors[i]);
@@ -74,18 +80,19 @@ export class DashboardComponent implements OnInit {
 
 
       console.log(this.getSensorDisplayed);
-      this.sensorDisplayed[i] = (this.getSensorDisplayed);
+      this.sensorDisplayed.push(this.getSensorDisplayed);
       /*
       if (i == 0) {
         this.sensorDisplayed[0] = this.sensorDisplayed[1];
         this.sensorDisplayed.pop()
       }
-      */
+      
       console.log(this.sensorDisplayed[i-1]);
       console.log(this.sensorDisplayed); 
       console.log("ende");
     };
     
+    */
     console.log(this.sensorDisplayed);
 
     this.checkContentReady();
