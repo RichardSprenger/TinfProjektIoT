@@ -6,6 +6,7 @@
 <div class="sidebar-open" *ngIf="sidebarOpen">
     
 </div>
+<div (click)="toggleBar()" class="sidebar-darken" *ngIf="sidebarOpen"></div>
 
 <i (click)="toggleBar()" class="material-icons menu">menu</i>
 <i (click)="openAdminView()" class="material-icons adminview">apps</i>
