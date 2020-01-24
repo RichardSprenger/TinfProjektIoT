@@ -1,9 +1,23 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {Sensor, SensorDisplay, Sensordata, Type } from '../../Testdata/sensors';
-import {SENSORS, SENSORDATAS, TYPES } from '../../Testdata/dataset';
+// import {SENSORS, SENSORDATAS, TYPES } from '../../Testdata/dataset';
+
+import { SENSORDATAS, TYPES } from '../../Testdata/dataset';
 
 import {CollectionViewer, DataSource} from '@angular/cdk/collections';
 import {BehaviorSubject, Observable, Subscription} from 'rxjs';
+
+export const SENSORS: Sensor[] = [
+  { id: 1, name: "Sensor 1", installation_date: new Date(2020-1-12)},
+  { id: 2, name: "Sensor 2", installation_date: new Date(2020-1-12)},
+  { id: 3, name: "Sensor 3", installation_date: new Date(2020-1-12)},
+  { id: 4, name: "Sensor 4", installation_date: new Date(2020-1-12)},
+  { id: 5, name: "Sensor 5", installation_date: new Date(2020-1-12)},
+  { id: 6, name: "Sensor 6", installation_date: new Date(2020-1-12)},
+  { id: 7, name: "Sensor 7", installation_date: new Date(2020-1-12)},
+  { id: 8, name: "Sensor 8", installation_date: new Date(2020-1-12)},
+  { id: 9, name: "Sensor 9", installation_date: new Date(2020-1-12)},
+];
 
 @Component({
   selector: 'app-dashboard',
@@ -18,31 +32,22 @@ export class DashboardComponent implements OnInit {
   contentReady = false;
   gridClass = "grid";
 
-  sensors = SENSORS;
-  sensorLength = this.sensors.length;
-  
-  sensorDisplayed = this.sensors;
-  
-  // getSensorDisplayed: SensorDisplay = {id: null, name: null, lastvalue: null, id_type: null, timeCreated: null};
-
-  sensordatas = SENSORDATAS;
-  types = TYPES;
+  sesnors: Sensor[];
 
   constructor() { }
 
   ngOnInit() {
-
+    this.getSensors();
     // call after Data has been loaded
     this.getValues();
   }
 
+  getSensors() {
+
+  }
+
+
   getValues() {
-
-    for ( let i = 0; i < this.sensorDisplayed.length; i++) {
-      this.sensorDisplayed.pop();
-    }
-    console.log(this.sensorDisplayed);
-
     // let hereSensor = this.sensors;
 
 
@@ -93,8 +98,6 @@ export class DashboardComponent implements OnInit {
     };
     
     */
-    console.log(this.sensorDisplayed);
-
     this.checkContentReady();
     
   }
