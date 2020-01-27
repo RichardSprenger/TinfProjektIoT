@@ -6,7 +6,7 @@
 <div *ngIf="contentReady">
     <div class="main {{gridClass}}">
         <mat-grid-list cols="3" rowHeight="3:2" class="gridList">
-            <mat-grid-tile *ngFor="let sensorDisplayedHere of sensorDisplayed">
+            <mat-grid-tile *ngFor="let sensorDisplayedHere of sensors">
                 <div class="card">
                     <p class="sensorName">{{sensorDisplayedHere.name}}</p>
                     <p>Letzer Wert: {{sensorDisplayedHere.lastvalue}}</p>
