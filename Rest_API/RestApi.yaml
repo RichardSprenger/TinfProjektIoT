@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   description: "Data provider for IoT data logging"
-  version: "1.0.0"
+  version: "1.0.2"
   title: "Tinf IoT-Project"
   license:
     name: "Apache 2.0"
@@ -11,6 +11,18 @@ basePath: "/api"
 schemes:
 - "https"
 paths:
+  /machine:
+    get:
+      summary: "Get Service and Uptime"
+      description: "Return the date of last service and the uptime of the machine"
+      operationId: "getMachine"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Machine"   
   /sensor:
     get:
       summary: "Get all sensors"
@@ -26,6 +38,42 @@ paths:
               $ref: "#/definitions/Sensor"
         400:
           description: "Invalid status value"
+    post:
+      summary: "Adds a new sensor"
+      description: ""
+      operationId: "addSensor"
+      consumes: 
+      - "application.json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Sensor object that need to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Sensor"
+      responses:
+        405:
+          description: "invalid input"
+    put:
+      summary: "Updates an existing sensor"
+      description: ""
+      operationId: "updateSensor"
+      consumes:
+      - "application.json"
+      produces:
+      - "application.json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Sensor object that need to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Sensor"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Sensor not found"
   /sensor/{sensorId}:
     get:
       summary: "Get current value from a sensor"
@@ -44,6 +92,24 @@ paths:
           description: "successful operation"
           schema:
             $ref: "#/definitions/SensorData"
+        404:
+          description: "Sensor not found"
+    delete:
+      summary: "Deletes a sensor by Id"
+      description: ""
+      operationId: "deleteSensor"
+      produces:
+      - "application.json"
+      parameters:
+      - name: "sensorId"
+        in: "path"
+        description: "Sensor id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        400:
+          description: "Invalid ID supplied"
         404:
           description: "Sensor not found"
   /sensor/{sensorId}/history:
@@ -92,6 +158,15 @@ paths:
         404:
           description: "Sensor not found"
 definitions:
+  Machine:
+    type: "object"
+    properties:
+      lastservice:
+        type: "string"
+        format: "date"
+      uptime:
+        type: "string"
+        format: "time"
   Sensor:
     type: "object"
     properties:
@@ -106,6 +181,7 @@ definitions:
       installationDate:
         type: "string"
         format: "date-time"
+      
   SensorData:
     type: "object"
     properties:
