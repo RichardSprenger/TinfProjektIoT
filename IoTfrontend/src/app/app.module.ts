@@ -7,6 +7,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DetailviewComponent } from './components/detailview/detailview.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AdminviewComponent } from './components/adminview/adminview.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './services/in-memory-data.service';
+import { HttpClientModule }    from '@angular/common/http';
+
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -18,7 +27,16 @@ import { AdminviewComponent } from './components/adminview/adminview.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSidenavModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatProgressSpinnerModule,
+    ScrollingModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
