@@ -1,1 +1,12 @@
-<p>sidebar works!</p>
+<div class="header">
+    <h1>Dashboard</h1>
+    
+</div>
+
+<div class="sidebar-open" *ngIf="sidebarOpen">
+    
+</div>
+
+<i (click)="toggleBar()" class="material-icons menu">menu</i>
+<i (click)="openAdminView()" class="material-icons adminview">apps</i>
+<router-outlet>

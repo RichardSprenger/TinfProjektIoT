@@ -1,1 +1,26 @@
-<p>dashboard works!</p>
+<div *ngIf="!contentReady" class="notReady">
+    <mat-spinner></mat-spinner>
+    <p>Bitte warten ...</p>
+    <p>Daten werden geladen ...</p>
+</div>
+<div *ngIf="contentReady">
+    <div class="main {{gridClass}}">
+        <mat-grid-list cols="3" rowHeight="3:2" class="gridList">
+            <mat-grid-tile *ngFor="let sensorDisplayedHere of sensors">
+                <div class="card">
+                    <p class="sensorName">{{sensorDisplayedHere.name}}</p>
+                    <p>Letzer Wert: {{sensorDisplayedHere.lastvalue}}</p>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>  
+    </div>
+    
+    <div class="main adminView" *ngIf="showAdminView">
+        <app-adminview></app-adminview>
+    </div>
+</div>
+
+
+
+
+  
