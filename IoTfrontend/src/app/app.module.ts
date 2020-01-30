@@ -9,8 +9,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AdminviewComponent } from './components/adminview/adminview.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './services/in-memory-data.service';
-import { HttpClientModule }    from '@angular/common/http';
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material/grid-list';
