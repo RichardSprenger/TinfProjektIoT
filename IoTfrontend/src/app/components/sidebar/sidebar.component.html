@@ -4,7 +4,15 @@
 </div>
 
 <div class="sidebar-open" *ngIf="sidebarOpen">
-    
+    <div class="machineInfo">
+        <label class="info">Letzte Wartung </label> <label class="value">{{lastService | date:'dd LLL yyyy, hh:mm'}} Uhr</label> <br>
+        <label class="info">Erwarteter Ausfall </label> <label class="value">{{nextBreakdown | date:'dd LLL yyyy, hh:mm'}} Uhr</label><br>
+        <label class="info">Gesamtlaufzeit </label> <label class="value">{{h_runingTime}} Stunden</label><br>
+
+        <div *ngFor="let data of sensor" class="sensor"> 
+            <label class="info">{{data.name}} </label> <label class="value">{{data.lastvalue}} {{data.unit}}</label><br> 
+        </div>
+    </div>
 </div>
 <div (click)="toggleBar()" class="sidebar-darken" *ngIf="sidebarOpen"></div>
 
