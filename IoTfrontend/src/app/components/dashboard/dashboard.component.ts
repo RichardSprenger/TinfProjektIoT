@@ -9,21 +9,22 @@ import { SensorService } from 'src/app/services/sensor.service';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  
+
 })
 export class DashboardComponent implements OnInit {
+
 
   showAdminView: Boolean = false;
   showSidebar: Boolean = false;
   contentReady = false;
-  gridClass = "grid";
+  gridClass = 'grid';
 
   sensors: Sensor[];
   constructor(private sensorService: SensorService) { }
 
   ngOnInit() {
     this.getHeroes();
-    
+
 
     this.checkContentReady();
   }
@@ -41,20 +42,20 @@ export class DashboardComponent implements OnInit {
   openSidebar() {
     this.showSidebar = !this.showSidebar;
     if (this.showSidebar) {
-      this.gridClass = "gridBlured";
+      this.gridClass = 'gridBlured';
     } else {
-      this.gridClass = "grid";
+      this.gridClass = 'grid';
     }
-  
+
   }
 
   openAdminView() {
     this.showAdminView = !this.showAdminView;
 
     if (this.showAdminView) {
-      this.gridClass = "gridBlured";
+      this.gridClass = 'gridBlured';
     } else {
-      this.gridClass = "grid";
+      this.gridClass = 'grid';
     }
 
   }

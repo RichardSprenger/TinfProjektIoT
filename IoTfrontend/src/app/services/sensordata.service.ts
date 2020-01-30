@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/*import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Sensor, Sensordata } from '../Testdata/sensors';
@@ -25,3 +25,4 @@ export class SensordataService {
   }
 
 }
+*/
