@@ -7,6 +7,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DetailviewComponent } from './components/detailview/detailview.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AdminviewComponent } from './components/adminview/adminview.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AdminviewComponent } from './components/adminview/adminview.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
