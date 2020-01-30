@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   description: "Data provider for IoT data logging"
-  version: "1.0.2"
+  version: "1.0.3"
   title: "Tinf IoT-Project"
   license:
     name: "Apache 2.0"
@@ -157,6 +157,26 @@ paths:
             $ref: "#/definitions/SensorDataHistory"
         404:
           description: "Sensor not found"
+  /user/{userId}:
+    get:
+      summary: "Get user id"
+      description: "get user by ID"
+      operationId: "getUser"
+      produces:
+      - "application.json"
+      parameters:
+      - name: "userId"
+        in: "path"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/User"
+        404:
+          description: "User not found"
 definitions:
   Machine:
     type: "object"
@@ -181,7 +201,6 @@ definitions:
       installationDate:
         type: "string"
         format: "date-time"
-      
   SensorData:
     type: "object"
     properties:
@@ -213,3 +232,11 @@ definitions:
             value:
               type: "number"
               format: "double"
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
