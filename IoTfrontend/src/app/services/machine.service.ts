@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Machine } from '../Testdata/sensors';
-import { HttpClient, HttpHeader } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,6 @@ export class MachineService {
     return this.http.get<Machine>(this.machineAPI);
   }
 
-  constructor() {
-    private http: HttpClient,
+  constructor(private http: HttpClient) {
    }
 }

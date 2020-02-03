@@ -32,14 +32,14 @@ export class SidebarComponent implements OnInit {
   }
 
   getMachineData() {
-    this.machineService.getMachineData()
+    this.machineService.getMachineInfo()
       .subscribe(data => this.machineInfo = data);
   }
 
   constructor( private machineService: MachineService) { }
 
   ngOnInit() {
-    getMachinedata();
+    this.getMachineData();
   }
 
 }
