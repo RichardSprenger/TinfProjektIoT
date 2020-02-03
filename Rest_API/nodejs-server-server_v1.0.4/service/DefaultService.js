@@ -40,6 +40,7 @@ exports.getMachine = function() {
     var examples = {};
     examples['application/json'] = {
   "lastservice" : "2000-01-23",
+  "nextBreakdown" : "2000-01-23",
   "uptime" : "uptime"
 };
     if (Object.keys(examples).length > 0) {
@@ -127,6 +128,25 @@ exports.getSensorHistoryById = function(sensorId,from,to,since,quantizeTo) {
     "value" : 0.8008281904610115
   } ]
 };
+    if (Object.keys(examples).length > 0) {
+      resolve(examples[Object.keys(examples)[0]]);
+    } else {
+      resolve();
+    }
+  });
+}
+
+
+/**
+ * Get user id
+ * get user by ID
+ *
+ * userId Long 
+ * returns User
+ **/
+exports.getUser = function(userId) {
+  return new Promise(function(resolve, reject) {
+    var examples = {};
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {
