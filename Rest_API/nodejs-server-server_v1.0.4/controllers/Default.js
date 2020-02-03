@@ -71,6 +71,17 @@ module.exports.getSensorHistoryById = function getSensorHistoryById (req, res, n
     });
 };
 
+module.exports.getUser = function getUser (req, res, next) {
+  var userId = req.swagger.params['userId'].value;
+  Default.getUser(userId)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
 module.exports.updateSensor = function updateSensor (req, res, next) {
   var body = req.swagger.params['body'].value;
   Default.updateSensor(body)
