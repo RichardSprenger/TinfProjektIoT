@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 const routes: Routes = [
   {path: '', component: SidebarComponent, children: [
     {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -12,7 +14,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    HttpClientModule 
+    ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {SensorDisplay, Machine} from '../../Testdata/sensors';
+import { SensorDisplay, Machine} from '../../Testdata/sensors';
+import { MachineService } from '../../services/machine.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,14 +11,16 @@ export class SidebarComponent implements OnInit {
 
   sidebarOpen = false;
 
-  lastService = new Date('2020-1-1');
   nextBreakdown = new Date('2020-2-18');
-  hRuningTime = 1004;
+
+  machineInfo: Machine;
 
   sensor: SensorDisplay[] = [
     {id: 1, name: 'Sensor 1', lastvalue: 20, unit: '°C', timeCreated: new Date('2020-1-1')},
-    {id: 2, name: 'Sensor 2', lastvalue: 197, unit: 'km/s', timeCreated: new Date('2020-3-1')},
-    {id: 3, name: 'Sensor 3', lastvalue: 87, unit: 'Bar', timeCreated: new Date('2020-1-5')}
+    {id: 2, name: 'Sensor 2', lastvalue: 197, unit: 'km/h', timeCreated: new Date('2020-3-1')},
+    {id: 3, name: 'Sensor 3', lastvalue: 87, unit: 'Bar', timeCreated: new Date('2020-1-5')},
+    {id: 4, name: 'Sensor 4', lastvalue: 93, unit: '°', timeCreated: new Date('2020-1-16')},
+    {id: 5, name: 'Sensor 5', lastvalue: 200, unit: 'km/h', timeCreated: new Date('2020-1-20')}
   ];
 
   toggleBar() {
@@ -28,10 +31,15 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  getMachineData() {
+    this.machineService.getMachineData()
+      .subscribe(data => this.machineInfo = data);
+  }
+
+  constructor( private machineService: MachineService) { }
 
   ngOnInit() {
-
+    getMachinedata();
   }
 
 }

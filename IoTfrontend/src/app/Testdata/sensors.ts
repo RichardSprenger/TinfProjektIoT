@@ -1,7 +1,7 @@
 export class Sensor {
     id: number;
     name: string;
-    installation_date: Date;
+    installationDate: Date;
 }
 
 export class SensorDisplay {
@@ -14,9 +14,9 @@ export class SensorDisplay {
 
 export class Sensordata {
     id: number;
-    id_Sensor: number;
+    idSensor: number;
     value: number;
-    id_type: number;
+    idType: number;
     timeCreated: Date;
 }
 
@@ -25,6 +25,7 @@ export class Machine {
     name: string;
     uptime: number;
     lastService: Date;
+    nextBreakdown: Date;
 }
 
 export class User {
