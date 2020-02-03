@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   description: "Data provider for IoT data logging"
-  version: "1.0.4"
+  version: "1.0.5"
   title: "Tinf IoT-Project"
   license:
     name: "Apache 2.0"
@@ -13,6 +13,8 @@ schemes:
 paths:
   /machine:
     get:
+      tags:
+      - "machine"
       summary: "Get Service and Uptime"
       description: "Return the date of last service and the uptime of the machine"
       operationId: "getMachine"
@@ -25,6 +27,8 @@ paths:
             $ref: "#/definitions/Machine"   
   /sensor:
     get:
+      tags:
+      - "sensor"
       summary: "Get all sensors"
       operationId: "getSensor"
       produces:
@@ -39,6 +43,8 @@ paths:
         400:
           description: "Invalid status value"
     post:
+      tags:
+       - "sensor"
       summary: "Adds a new sensor"
       description: ""
       operationId: "addSensor"
@@ -55,6 +61,8 @@ paths:
         405:
           description: "invalid input"
     put:
+      tags:
+      - "sensor"
       summary: "Updates an existing sensor"
       description: ""
       operationId: "updateSensor"
@@ -76,6 +84,8 @@ paths:
           description: "Sensor not found"
   /sensor/{sensorId}:
     get:
+      tags:
+      - "sensor"
       summary: "Get current value from a sensor"
       operationId: "getSensorById"
       produces:
@@ -95,6 +105,8 @@ paths:
         404:
           description: "Sensor not found"
     delete:
+      tags:
+      - "sensor"
       summary: "Deletes a sensor by Id"
       description: ""
       operationId: "deleteSensor"
@@ -114,6 +126,8 @@ paths:
           description: "Sensor not found"
   /sensor/{sensorId}/history:
     get:
+      tags:
+      - "sensor"
       summary: "Get value history for single sensor"
       description: "Returns history for single sensor"
       operationId: "getSensorHistoryById"
@@ -159,6 +173,8 @@ paths:
           description: "Sensor not found"
   /user/{userId}:
     get:
+      tags:
+      - "user"
       summary: "Get user id"
       description: "get user by ID"
       operationId: "getUser"
@@ -213,9 +229,8 @@ definitions:
       value:
         type: "number"
         format: "double"
-      type:
-        type: "integer"
-        format: "int64"
+      unitOfMeasure:
+        type: "string"
       date:
         type: "string"
         format: "date-time"
