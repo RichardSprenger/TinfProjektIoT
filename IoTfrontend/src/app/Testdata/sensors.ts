@@ -1,40 +1,41 @@
 export class Sensor {
-    id: Number;
-    name: String;
-    installation_date: Date;
-};
+    id: number;
+    name: string;
+    installationDate: Date;
+}
 
 export class SensorDisplay {
-    id: Number;
-    name: String;
-    lastvalue: Number;
-    id_type: Number;
+    id: number;
+    name: string;
+    lastvalue: number;
+    unit: string;
     timeCreated: Date;
 }
 
 export class Sensordata {
-    id: Number;
-    id_Sensor: Number;
-    value: Number;
-    id_type: Number;
+    id: number;
+    idSensor: number;
+    value: number;
+    idType: number;
     timeCreated: Date;
-};
+}
 
 export class Machine {
-    id: Number;
-    name: String;
-    uptime: Number;
+    id: number;
+    name: string;
+    uptime: number;
     lastService: Date;
-};
+    nextBreakdown: Date;
+}
 
 export class User {
-    id: Number;
-    name: String;
-    pwd: String;
-};
+    id: number;
+    name: string;
+    pwd: string;
+}
 
 export class Type {
-    id: Number;
-    name: String;
-    unit: String;
-};
+    id: number;
+    name: string;
+    unit: string;
+}
