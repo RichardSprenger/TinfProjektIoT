@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class MachineService {
 
-  private machineAPI = 'api/machine'
+  private machineAPI = 'localhost:8080/api/machine';
 
   getMachineInfo(): Observable<Machine> {
     return this.http.get<Machine>(this.machineAPI);
