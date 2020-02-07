@@ -12,7 +12,7 @@ export class SensorService {
 
   constructor(private http: HttpClient) { }
 
-  private sensorUrl = 'api/sensor';
+  private sensorUrl = 'http://localhost:8080/api/sensor';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
