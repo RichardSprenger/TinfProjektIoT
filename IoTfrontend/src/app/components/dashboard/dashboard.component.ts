@@ -4,6 +4,7 @@ import {Sensor, SensorDisplay, Sensordata, Type } from '../../Testdata/sensors';
 import {CollectionViewer, DataSource} from '@angular/cdk/collections';
 import {BehaviorSubject, Observable, Subscription} from 'rxjs';
 import { SensorService } from 'src/app/services/sensor.service';
+import { SensordataService } from 'src/app/services/sensordata.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,11 +20,18 @@ export class DashboardComponent implements OnInit {
   gridClass = "grid";
 
   sensors: Sensor[];
-  constructor(private sensorService: SensorService) { }
+  sensordata: Sensordata[];
+
+
+  constructor(
+    private sensorService: SensorService,
+    private sensordataService: SensordataService
+  ) { }
 
   ngOnInit() {
     this.getHeroes();
     
+    this.getSensorDisplay();
 
     this.checkContentReady();
   }
@@ -33,6 +41,22 @@ export class DashboardComponent implements OnInit {
     .subscribe(sensors => this.sensors = sensors);
   }
 
+  getSensorDisplay() {
+
+    this.sensors.forEach(element => {
+      let getSensor;
+      
+      getSensor.id = element.id;
+      this.sensordata = this.getSensordata(Number(element.id))
+    })
+  }
+
+  getSensordata(id: number) {
+    let sensorData;
+    this.sensordataService.getSensorData(id)
+      .subscribe(sensordata => sensorData = sensordata)
+    return sensorData;
+  }
 
   checkContentReady() {
     this.contentReady = true;
