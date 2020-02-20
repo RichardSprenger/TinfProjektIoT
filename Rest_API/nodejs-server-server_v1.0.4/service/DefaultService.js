@@ -41,7 +41,7 @@ exports.getMachine = function() {
     examples['application/json'] = {
   "lastservice" : "2000-01-23",
   "nextBreakdown" : "2000-01-23",
-  "uptime" : "uptime"
+  "uptime" : "145"
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);

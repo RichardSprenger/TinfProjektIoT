@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Machine } from './dataTypes';
+import { Machine } from '../services/dataTypes';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class MachineService {
 
-  private machineAPI = 'api/machine';
+  private machineAPI = 'http://localhost:8080/api/machine';
   
   getMachineInfo(): Observable<Machine> {
     return this.http.get<Machine>(this.machineAPI);

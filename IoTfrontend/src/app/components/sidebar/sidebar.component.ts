@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SensorDisplay, Machine} from '../../Testdata/sensors';
+import { SensorDisplay, Machine} from '../../services/dataTypes';
 import { MachineService } from '../../services/machine.service';
 
 @Component({

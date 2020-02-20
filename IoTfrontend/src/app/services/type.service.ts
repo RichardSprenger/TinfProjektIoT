@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Sensor } from './dataTypes';
+import { Type } from './dataTypes';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SensorService {
+export class TypeService {
 
   constructor(private http: HttpClient) { }
 
-  private sensorUrl = 'api/sensor';
+  private typeUrl = 'api/type';
 
 
 
@@ -20,10 +20,10 @@ export class SensorService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  getSensor (): Observable<Sensor[]> {
-    return this.http.get<Sensor[]>(this.sensorUrl)
+  getType (): Observable<Type[]> {
+    return this.http.get<Type[]>(this.typeUrl)
       .pipe(
-        catchError(this.handleError<Sensor[]>('getSensor', []))
+        catchError(this.handleError<Type[]>('getType', []))
       );
   }
 

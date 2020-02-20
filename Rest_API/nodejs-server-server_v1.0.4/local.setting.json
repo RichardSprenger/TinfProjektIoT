@@ -1,0 +1,8 @@
+{
+    "ConnectionString": {},
+    "Host": {
+        "LocalHttpPort":8080,
+        "CORS":"*",
+        "CORSCredentials":false
+    }
+}

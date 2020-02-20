@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Sensor } from './dataTypes';
+import { Sensor } from '../services/dataTypes';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -12,6 +12,14 @@ export class SensorService {
 
   constructor(private http: HttpClient) { }
 
+
+
+  // private sensorUrl = 'http://localhost:8080/api/sensor';
+  
+  /*  !!!!
+    ONLY FOR TESTING PURPOSE!!!
+    Use Url provided above in Production
+  */
   private sensorUrl = 'api/sensor';
 
 
