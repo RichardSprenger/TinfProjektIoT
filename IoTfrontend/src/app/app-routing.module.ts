@@ -5,11 +5,13 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { DetailviewComponent } from './components/detailview/detailview.component';
 
 const routes: Routes = [
   {path: '', component: SidebarComponent, children: [
     {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-    {path: 'dashboard', component: DashboardComponent}
+    {path: 'dashboard', component: DashboardComponent},
+    {path: 'detail/:id', component: DetailviewComponent}
   ]}
 ];
 

@@ -20,14 +20,19 @@ export class SensorService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  getSensor (): Observable<Sensor[]> {
+  getSensor(): Observable<Sensor[]> {
     return this.http.get<Sensor[]>(this.sensorUrl)
       .pipe(
         catchError(this.handleError<Sensor[]>('getSensor', []))
       );
   }
 
-
+  getSensorById(id: number): Observable<Sensor> {
+    const url = `${this.sensorUrl}/${id}`;
+    return this.http.get<Sensor>(url).pipe(
+      catchError(this.handleError<Sensor>(`getSensorById id=${id}`))
+    );
+  }
 
   /**
    * Handle Http operation that failed.

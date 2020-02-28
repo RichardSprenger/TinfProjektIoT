@@ -1,3 +1,6 @@
+Informationen für die Entwickler
+JS-Library für Graphen d3js.org
+
 /* --------------------------------
 1. Topic Introduction
 

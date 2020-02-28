@@ -16,11 +16,11 @@ export class SidebarComponent implements OnInit {
   machineInfo: Machine;
 
   sensor: SensorDisplay[] = [
-    {id: 1, name: 'Sensor 1', lastvalue: 20, unit: '°C', timeCreated: new Date('2020-1-1')},
-    {id: 2, name: 'Sensor 2', lastvalue: 197, unit: 'km/h', timeCreated: new Date('2020-3-1')},
-    {id: 3, name: 'Sensor 3', lastvalue: 87, unit: 'Bar', timeCreated: new Date('2020-1-5')},
-    {id: 4, name: 'Sensor 4', lastvalue: 93, unit: '°', timeCreated: new Date('2020-1-16')},
-    {id: 5, name: 'Sensor 5', lastvalue: 200, unit: 'km/h', timeCreated: new Date('2020-1-20')}
+    {id: 1, name: 'Sensor 1', lastValue: 20, unit: '°C', timeCreated: new Date('2020-1-1')},
+    {id: 2, name: 'Sensor 2', lastValue: 197, unit: 'km/h', timeCreated: new Date('2020-3-1')},
+    {id: 3, name: 'Sensor 3', lastValue: 87, unit: 'Bar', timeCreated: new Date('2020-1-5')},
+    {id: 4, name: 'Sensor 4', lastValue: 93, unit: '°', timeCreated: new Date('2020-1-16')},
+    {id: 5, name: 'Sensor 5', lastValue: 200, unit: 'km/h', timeCreated: new Date('2020-1-20')}
   ];
 
   toggleBar() {

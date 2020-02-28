@@ -6,10 +6,10 @@
 <div *ngIf="contentReady">
     <div class="main {{gridClass}}">
         <mat-grid-list cols="3" rowHeight="3:2" class="gridList">
-            <mat-grid-tile *ngFor="let sensorDisplayedHere of sensors">
-                <div class="card">
+            <mat-grid-tile *ngFor="let sensorDisplayedHere of sensorsForDisplay">
+                <div class="card" [routerLink]="['/detail', sensorDisplayedHere.id]">
                     <p class="sensorName">{{sensorDisplayedHere.name}}</p>
-                    <p>Letzer Wert: {{sensorDisplayedHere.lastvalue}}</p>
+                    <p>{{sensorDisplayedHere.lastValue}}</p>
                     <p>{{sensorDisplayedHere.id}}</p>
                     <p>{{sensorDisplayedHere.installationDate}}</p>
                 </div>

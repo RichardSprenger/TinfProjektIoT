@@ -13,7 +13,7 @@ export class SensordataService {
 
   constructor(private http: HttpClient) { }
 
-  private sensordataUrl = 'api/sensordata';
+  private sensordataUrl = 'http://localhost:8080/api/sensor';
 
 
 
@@ -23,7 +23,7 @@ export class SensordataService {
 
   getSensordata (idSensor: number): Observable<Sensordata[]> {
     const url = `${this.sensordataUrl}/${idSensor}`;
-    return this.http.get<Sensordata[]>(this.sensordataUrl)
+    return this.http.get<Sensordata[]>(url)
       .pipe(
         catchError(this.handleError<Sensordata[]>(`getSensordata idSensor=${idSensor}`, []))
       );

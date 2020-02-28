@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   contentReady = false;
 
   sensors: Sensor[];
-  sensorsForDisplay: SensorDisplay[];
+  sensorsForDisplay: SensorDisplay[] = [{id: null, name: null, lastValue: null, unit: null, timeCreated: null}];
   sensorData: Sensordata[] = [];
   types: Type[];
   continue = true;
@@ -46,9 +46,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getUnits(): void {
-    console.log("Alle Sensoren")
-    console.log(this.sensors);
-
     this.typeService.getType()
     .subscribe(typeProvided => {
       
@@ -59,18 +56,12 @@ export class DashboardComponent implements OnInit {
   }
 
   getSensordata() {
-    console.log("\nAlle einheiten")
-    console.log(this.types);
-
     this.sensors.forEach(element => {
-      console.log("\n\n Momentanes Element")
-      console.log(element);
 
       // to wait for the observable funtion
-      let cont = false
       let calcSensorDisplay = {id: null, name: null, lastValue: null, unit: null, timeCreated: null};
       let sensordata;
-      let lastValue;
+
 
       // give the calcSensorDisplay the Id of this point
       calcSensorDisplay.id = element.id;
@@ -80,54 +71,34 @@ export class DashboardComponent implements OnInit {
       // get all Sensordata for this sensor
       this.sensordataService.getSensordata(element.id)
       .subscribe(sensordataProvided => {
-        console.log("Gehe in sensordata")
         sensordata = sensordataProvided;
-        
-        cont = true
-        console.log(sensordata);
+        this.getSensordataDispalyWithSensordata(calcSensorDisplay, sensordata);
       });
 
-      console.log(sensordata);
-
-      
-      /*
-      // wait until the data has been loaded
-      while(!cont) {}
-      console.log("\nAlle Sensordataen zu: " + element.id);
-      console.log(sensordata);
-
-      // check for the last value put in the data
-      sensordata.array.forEach(element => {
-        if (element.timeCreated > lastValue) {
-          // save it als the last value
-          lastValue = element;
-        }
-      });
-
-      console.log("\nLetzter wert");
-      console.log(lastValue);
-
-      calcSensorDisplay.lastValue = lastValue.value;
-      calcSensorDisplay.unit = this.types.find(element => element.id == lastValue.idType).unit;
-      calcSensorDisplay.timeCreated = lastValue.timeCreated;
-
-      console.log("\nGanzer Sensor Display von: " + element.id);
-      console.log(calcSensorDisplay);
-
-      this.sensorsForDisplay.push(calcSensorDisplay);
-
-      */
     });
+  }
+
+  getSensordataDispalyWithSensordata(calcSensorDisplay, sensorData) {
+    calcSensorDisplay.lastValue = sensorData.value;
+    calcSensorDisplay.unit = this.types.find(element => element.id == sensorData.idType).unit;
+    calcSensorDisplay.timeCreated = sensorData.timeCreated;
+
+    if (this.sensorsForDisplay[0].id == null) {
+      this.sensorsForDisplay[0] = calcSensorDisplay;
+    } else {
+      this.sensorsForDisplay.push(calcSensorDisplay);
+    }
+    
+
     this.checkContentReady();
   }
 
-  matchSensordata() {
-
-  }
-
   checkContentReady() {
-    console.log(this.sensorsForDisplay);
-    this.contentReady = true;
+
+    if (this.sensorsForDisplay.length == this.sensors.length) {
+      console.log(this.sensorsForDisplay);
+      this.contentReady = true;
+    }
   }
 
 }
